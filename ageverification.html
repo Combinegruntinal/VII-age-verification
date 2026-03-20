@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Verification Required</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;  /* solid black background */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    /* Verification card */
+    .container {
+      background-color: #000000;   /* black card background */
+      border: 1px solid #333;      /* subtle dark border */
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Headings and text – light gray for contrast */
+    h1 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: #cccccc;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    /* Button group */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Base button style: black background, colored outline, colored text */
+    button {
+      background-color: #000000;
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      font-family: inherit;
+    }
+
+    /* Yes button – green outline and text */
+    .btn-yes {
+      border-color: #2ecc71;
+      color: #2ecc71;
+    }
+    .btn-yes:hover {
+      background-color: #2ecc71;
+      color: #000000;
+    }
+
+    /* No button – red outline and text */
+    .btn-no {
+      border-color: #e74c3c;
+      color: #e74c3c;
+    }
+    .btn-no:hover {
+      background-color: #e74c3c;
+      color: #000000;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Age Verification</h1>
+    <p>This website contains content intended for adults only.<br>You must be 18 years or older to continue.</p>
+    <div class="btn-group">
+      <button class="btn-yes" onclick="redirectToSite()">Yes, I am 18+</button>
+      <button class="btn-no" onclick="redirectToGoogle()">No, I am under 18</button>
+    </div>
+    <footer>By clicking "Yes", you confirm that you are 18 years or older.</footer>
+  </div>
+
+  <script>
+    // === CONFIGURATION ===
+    // Replace with your actual Google Sites URL
+    const MAIN_SITE_URL = "https://sites.google.com/view/your-site-name";
+
+    // Optional: use localStorage to remember verification for returning visitors
+    function redirectToSite() {
+      localStorage.setItem('ageVerified', 'true');
+      window.location.href = MAIN_SITE_URL;
+    }
+
+    function redirectToGoogle() {
+      window.location.href = "https://youtu.be/e_04ZrNroTo?si=5B7p7vUCotUgrJuu";
+    }
+
+    // If already verified, skip straight to the main site
+    if (localStorage.getItem('ageVerified') === 'true') {
+      window.location.href = MAIN_SITE_URL;
+    }
+  </script>
+</body>
+</html>
